@@ -1,0 +1,39 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:comments, :index)
+      %li=link_to pat(:new), url(:comments, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:comments)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:comment, :id)
+          %th=mat(:comment, :subject)
+          %th=mat(:comment, :body)
+          %th=mat(:comment, :mod_up)
+          %th=mat(:comment, :mod_down)
+          %th=mat(:comment, :enabled)
+          %th=mat(:comment, :article_id)
+          %th=mat(:comment, :author_id)
+          %th.last="&nbsp;"
+        -@comments.each do |comment|
+          %tr
+            %td.first=comment.id
+            %td=comment.subject
+            %td=comment.body
+            %td=comment.mod_up
+            %td=comment.mod_down
+            %td=comment.enabled
+            %td=comment.article_id
+            %td=comment.author_id
+            %td.last
+              =button_to pat(:edit), url(:comments, :edit, :id => comment.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:delete), url(:comments, :destroy, :id => comment.id), :method => :delete, :class => :button_to, :onsubmit => "return confirm('#{pat(:confirm)}')"
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")

@@ -1,0 +1,29 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:topics, :index)
+      %li=link_to pat(:new), url(:topics, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:topics)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:topic, :id)
+          %th=mat(:topic, :name)
+          %th=mat(:topic, :image_url)
+          %th.last="&nbsp;"
+        -@topics.each do |topic|
+          %tr
+            %td.first=topic.id
+            %td=topic.name
+            %td=topic.image_url
+            %td.last
+              =button_to pat(:edit), url(:topics, :edit, :id => topic.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:delete), url(:topics, :destroy, :id => topic.id), :method => :delete, :class => :button_to, :onsubmit => "return confirm('#{pat(:confirm)}')"
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")

@@ -1,0 +1,39 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:revisions, :index)
+      %li=link_to pat(:new), url(:revisions, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:revisions)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:revision, :id)
+          %th=mat(:revision, :string)
+          %th=mat(:revision, :text)
+          %th=mat(:revision, :department)
+          %th=mat(:revision, :old_sid)
+          %th=mat(:revision, :created_at)
+          %th=mat(:revision, :article_id)
+          %th=mat(:revision, :author_id)
+          %th.last="&nbsp;"
+        -@revisions.each do |revision|
+          %tr
+            %td.first=revision.id
+            %td=revision.string
+            %td=revision.text
+            %td=revision.department
+            %td=revision.old_sid
+            %td=revision.created_at
+            %td=revision.article_id
+            %td=revision.author_id
+            %td.last
+              =button_to pat(:edit), url(:revisions, :edit, :id => revision.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:delete), url(:revisions, :destroy, :id => revision.id), :method => :delete, :class => :button_to, :onsubmit => "return confirm('#{pat(:confirm)}')"
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")

@@ -1,12 +1,12 @@
 Sequel.migration do
   up do
-    create_table :articles do
+    create_table :states do
       primary_key :id
-      
+      Name :string
     end
   end
 
   down do
-    drop_table :articles
+    drop_table :states
   end
 end

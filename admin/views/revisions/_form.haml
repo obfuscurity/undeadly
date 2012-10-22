@@ -1,0 +1,40 @@
+.group
+  =f.label :string
+  =f.error_message_on :string
+  =f.text_field :string, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :text
+  =f.error_message_on :text
+  =f.text_field :text, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :department
+  =f.error_message_on :department
+  =f.text_field :department, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :old_sid
+  =f.error_message_on :old_sid
+  =f.text_field :old_sid, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :article_id
+  =f.error_message_on :article_id
+  =f.text_field :article_id, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :author_id
+  =f.error_message_on :author_id
+  =f.text_field :author_id, :class => :text_field
+  %span.description Ex: a simple text
+
+
+.group.navform.wat-cf
+  =f.submit pat(:save), :class => :button
+  =f.submit pat(:cancel), :onclick => "window.location='#{url(:revisions, :index)}';return false", :class => :button

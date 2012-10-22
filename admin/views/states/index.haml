@@ -1,0 +1,27 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:states, :index)
+      %li=link_to pat(:new), url(:states, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:states)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:state, :id)
+          %th=mat(:state, :string)
+          %th.last="&nbsp;"
+        -@states.each do |state|
+          %tr
+            %td.first=state.id
+            %td=state.string
+            %td.last
+              =button_to pat(:edit), url(:states, :edit, :id => state.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:delete), url(:states, :destroy, :id => state.id), :method => :delete, :class => :button_to, :onsubmit => "return confirm('#{pat(:confirm)}')"
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")
