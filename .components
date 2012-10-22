@@ -1,4 +1,5 @@
 --- 
+:adapter: thin
 :orm: sequel
 :test: none
 :mock: none
