@@ -1,19 +1,25 @@
 .group
+  =f.label :username
+  =f.error_message_on :username
+  =f.text_field :username, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
   =f.label :name
   =f.error_message_on :name
   =f.text_field :name, :class => :text_field
   %span.description Ex: a simple text
 
 .group
-  =f.label :surname
-  =f.error_message_on :surname
-  =f.text_field :surname, :class => :text_field
-  %span.description Ex: a simple text
-
-.group
   =f.label :email
   =f.error_message_on :email
   =f.text_field :email, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :url
+  =f.error_message_on :url
+  =f.text_field :url, :class => :text_field
   %span.description Ex: a simple text
 
 .group
